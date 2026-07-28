@@ -22,4 +22,4 @@ async def on_member_join(member):
 
 
 # 從 Render 的環境變數安全讀取 Token
-client.run(os.getenv('DISCORD_TOKEN')
+client.run(os.getenv('DISCORD_TOKEN'))
