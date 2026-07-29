@@ -36,10 +36,11 @@ def home():
 
 
 def run():
-  # Render 會透過環境變數指定 Port，若沒有則預設用 8080
-  port = int(os.environ.get('PORT', 8080))
+  port = int(
+      os.environ.get('PORT', 10000)
+  )  # Render 通常預設帶入 Port，若無則預設 10000
+  print(f'正在啟動網頁伺服器，監聽 Port: {port}')
   app.run(host='0.0.0.0', port=port)
-
 
 def keep_alive():
   t = Thread(target=run)
