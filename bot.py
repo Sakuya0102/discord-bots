@@ -63,3 +63,20 @@ if __name__ == '__main__':
 
   # 啟動 Discord 機器人（請將 TOKEN 換成你的環境變數或字串）
   bot.run(os.environ.get('DISCORD_TOKEN'))
+
+import os
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def home():
+    return "Bot is running!"
+
+
+# 讓 Flask 在背景或與 bot 同時運行
+if __name__ == "__main__":
+  port = int(os.environ.get("PORT", 10000))
+  # 注意：如果 bot 本身佔用了主執行緒，通常需要用多執行緒（threading）或非同步方式把 Web 伺服器跑起來
+  app.run(host="0.0.0.0", port=port)
